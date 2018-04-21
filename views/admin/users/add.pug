@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  h1= title
+
+
+  form(action="/admin/user/add", method="post")
+    table.table
+        tr
+            td Username
+            td
+                input.form-control(name='username' type='text' placeholder='Input Username')
+
+        tr
+            td Password
+            td
+                input.form-control(name='password' type='password' placeholder='Input Password')
+
+        tr
+            td Full Name
+            td
+                input.form-control(name='name', type='text', placeholder='Input Fullname')
+
+        tr
+            td Status
+            td
+                input.form-control(name='status', type='text', placeholder='Input Status')
+
+        tr
+            td User Type
+            td
+                input.form-control(name='userType', type='text', placeholder='Input User Type')
+        tr
+            td &nbsp;
+            td
+                input.btn.btn-primary(type="submit" value="Submit")
+

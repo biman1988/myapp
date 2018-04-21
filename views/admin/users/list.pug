@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+  h1= title
+  p#myline Welcome to #{title}
+  div
+    //- img(src="/images/business.png", class="img-responsive")
+    table.table
+      tr
+        th Username
+        th password
+        th Full name
+        th Status
+        th Type
+        th Actions
+      for user in users
+        tr
+            td=user.username
+            td=user.password
+            td= user.name
+            td= user.status
+            td= user.userType
+            td
+                a.btn.btn-warning(href="/admin/user/edit/"+user._id) Edit
+                a.btn.btn-danger(href="/admin/user/delete/"+user._id) Delete
+
+block footer
+  p.txt-black &copy;Copyright By Shibaji Debnath
+
+
+block styles
+  style.
+    #myline{
+      color: red;
+    }
+
+block scripts
+  script.
+    // alert('Hello Guest');

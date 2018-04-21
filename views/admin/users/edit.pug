@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+  h1= title
+
+
+  form(action="/admin/user/edit", method="post")
+    input(type="hidden", name="id", value=user._id)
+    table.table
+        tr
+            td Username
+            td
+                input.form-control(name='username' type='text' placeholder='Input Username' value=user.username)
+
+        tr
+            td Password
+            td
+                input.form-control(name='password' type='text' placeholder='Input Password' value=user.password)
+
+        tr
+            td Full Name
+            td
+                input.form-control(name='name', type='text', placeholder='Input Fullname' value=user.name)
+
+        tr
+            td Status
+            td
+                input.form-control(name='status', type='text', placeholder='Input Status' value=user.status)
+
+        tr
+            td User Type
+            td
+                input.form-control(name='userType', type='text', placeholder='Input User Type' value=user.userType)
+        tr
+            td &nbsp;
+            td
+                input.btn.btn-primary(type="submit" value="Submit")
+
