@@ -5,6 +5,8 @@ block content
 
 
   form(action="/admin/user/add", method="post")
+    if message
+        .alert.alert-dismissible.alert-danger=message
     table.table
         tr
             td Username
