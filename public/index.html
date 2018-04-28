@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id="output"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$.get('/api/users', function(datas, status){
+    console.log(datas);
+
+    var out = '<ul>';
+    datas.forEach(function(data){
+        out += '<li> Name: '+data.name+', status: '+data.status+'</li>';
+    });
+
+    out += '</ul>';
+
+    $('#output').html(out);
+});
+
+
+function hello(name ,callback){
+    return callback('<b>'+name+'</b>');
+};
+
+hello('Shibaji', function(n){
+    document.write('Hello ' + n);
+})
+</script>
+</body>
+</html>
