@@ -1,7 +1,11 @@
 extends ../layout
 
 block content
-  h1= title
+  .row.align-items-center
+    .col-6
+      h1= title
+    .col-6.text-right
+      a.btn.btn-success(href="/admin/user/add") Add User
   p#myline Welcome to #{title}
   div
     //- img(src="/images/business.png", class="img-responsive")
