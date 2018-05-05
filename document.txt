@@ -1,0 +1,5 @@
+1. Front end and Backend
+2. cms page add from backend(5 pages with blog)
+3. article features (Add, edit, delete---> User specific add edit, dlt)
+4. User registration and login
+5. Front end showing pages and blog
