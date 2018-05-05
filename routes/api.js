@@ -17,11 +17,12 @@ router.post('/user/add', function (req, res, next) {
     var u = new User(req.query);
     u.save().then((data)=>{
         console.log("Data Inserted");
-        res.json({status: 'Success', message: 'Data Adeed Successfully'})
+        res.json({status: 'Success', message: 'Data Adeed Successfullyyy'})
     }).catch((err) =>{
         console.log("Error: "+err);
         res.json({ status: 'Error', message: err })
     });
 });
 
+//
 module.exports = router;
