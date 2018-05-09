@@ -1,3 +1,3 @@
 <?php 
-echo 'Dhyamna Jaga';
-echo "hello";
+    echo "test";
+?>
