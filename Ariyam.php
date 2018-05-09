@@ -1,2 +1,2 @@
 <?php 
-echo 'Dhyamna Ariyam';
+echo 'Dhyamna Biman';
