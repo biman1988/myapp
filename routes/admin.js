@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var CMS = require('../models/cms');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('admin/index', { title: 'SHibaji Debnath' });
+    res.render('admin/index', { title: 'Biman Ghoshal' });
 });
 
 /* GET home page. */
@@ -62,6 +63,48 @@ router.get('/user/delete/:id', function (req, res, next) {
     User.findByIdAndRemove(req.params.id, function (err, data) {
         console.log(data);
         res.redirect('/admin/users');
+    });
+});
+
+//manage cms
+
+router.get('/cms/list', function (req, res, next) {
+    CMS.find(function(err, data){
+        if(err){
+            console.log(err);
+        }
+        res.render('admin/cms/list', { title: 'CMS List', cms: data });
+    }); 
+});
+
+router.get('/cms/add', function (req, res, next) {
+    res.render('admin/cms/add', { title: 'CMS Add Page' });
+});
+
+router.post('/cms/add', function(req, res, next){
+    if (!req.body.post_title){
+        res.render('admin/cms/add', { title: 'CMS Add Page', message: "Title Required" });
+    }else if(!req.body.post_content){
+        res.render('admin/cms/add', { title: 'CMS Add Page', message: "Description Required"});
+    }else{
+        next();
+    }
+}, function(req, res, next){
+    var u = new CMS(req.body);
+    u.save().then(function(data){
+        console.log(data);
+
+        res.redirect('/admin/cms/list');
+    }).catch(function(err){
+        console.log(err);
+        res.render('admin/cms/add', { title: 'CMS Add Page', message: "Database Error: "+err.message });
+    });
+});
+
+router.get('/cms/delete/:id', function (req, res, next) {
+    CMS.findByIdAndRemove(req.params.id, function (err, data) {
+        console.log(data);
+        res.redirect('/admin/cms/list');
     });
 });
 

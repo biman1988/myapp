@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+  h1= title
+
+
+  form(action="/admin/cms/add", method="post")
+    if message
+        .alert.alert-dismissible.alert-danger=message
+    table.table
+        tr
+            td Title
+            td
+                input.form-control(name='post_title' type='text' placeholder='Input Title')
+
+        tr
+            td Description
+            td
+                textarea.form-control(name='post_content' placeholder='Input Description' cols='30' rows='10')
+
+        tr
+            td &nbsp;
+            td
+                input.btn.btn-primary(type="submit" value="Submit")
+
